@@ -5,7 +5,7 @@ export const state = {
 };
 
 export const mutations = {
-  [types.SET_GENERATIONS](data) {
+  [types.SET_GENERATIONS](state, data) {
     state.generations = data;
   }
 };

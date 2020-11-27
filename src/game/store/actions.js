@@ -6,9 +6,9 @@ const actions = {};
 const api = new PokeAPI();
 
 actions.getGenerations = async ({ commit }) => {
-  const generations = await api.getGenerations();
+  const { data } = await api.getGenerations();
 
-  commit(types.SET_GENERATIONS, generations);
+  commit(types.SET_GENERATIONS, data);
 };
 
 export default actions;
