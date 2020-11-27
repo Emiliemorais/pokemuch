@@ -1,0 +1,9 @@
+version: '2.2'
+services:
+
+  pokemuch:
+    container_name: pokemuch
+    build: 
+      context: .
+    ports:
+      - "8080:8080"
