@@ -1,29 +1,15 @@
 # pokemuch
 
-## Project setup
+Esse projeto lista as gerações de jogos Pokémon disponibilizadas pela API: https://pokeapi.co/
+
+## Rodando o projeto
+
+### Opção 1: Se você já possui o `docker` instalado basta usar dentro da pasta:
 ```
-npm install
+docker-compose up --build
 ```
 
-### Compiles and hot-reloads for development
+### Opção 2: Se você já possui o `npm` instalado basta usar dentro da pasta:
 ```
-npm run serve
+sh post-up
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
