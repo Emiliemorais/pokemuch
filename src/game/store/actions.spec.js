@@ -45,4 +45,33 @@ describe('game/store/actions', () => {
       });
     });
   });
+
+  describe('getGeneration', () => {
+    describe('when gets generation', () => {
+      let response;
+  
+      beforeEach(async () => {
+        response = { name: 'Generation I' };
+        mock.onGet('/generation/1', {}).reply(200, response);
+  
+        await actions.getGeneration({ commit }, 1);
+      });
+  
+      it('commits response data', () => {
+        expect(commit).toBeCalledWith(types.SET_ACTIVE, response);
+      });
+    });
+  
+    describe('when not gets generation', () => {
+      beforeEach(async () => {
+        mock.onGet('/generation/1', {}).reply(500);
+  
+        await actions.getGeneration({ commit }, 1);
+      });
+  
+      it('notify error', () => {
+        expect(notify.error).toBeCalledWith('Ocorreu um erro ao buscar a geração, por favor tente novamente');
+      });
+    });
+  });
 });

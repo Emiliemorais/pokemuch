@@ -22,4 +22,16 @@ describe('service/pokeapi', () => {
       expect(api.requester.get).toHaveBeenCalledWith('/generation', { baseURL: 'https://pokeapi.co/api/v2' });
     });
   });
+
+  describe('getGeneration', () => {
+    beforeEach(() => {
+      api.requester.get = jest.fn();
+
+      api.getGeneration(1);
+    });
+
+    it('call requester get', () => {
+      expect(api.requester.get).toHaveBeenCalledWith('/generation/1', { baseURL: 'https://pokeapi.co/api/v2' });
+    });
+  });
 });
