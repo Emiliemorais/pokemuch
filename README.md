@@ -16,12 +16,18 @@ sh post-up
 
 ## Rodando os testes
 
-### Opção 1: Com docker
+### Opção 1: Com `docker`
 ```
 docker exec -it pokemuch npm run test
 ```
 
-### Opção 1: Sem docker
+### Opção 2: Sem `docker`
 ```
 npm run test
 ```
+
+Imagens obtidas em:
+
+https://pt.wikipedia.org/wiki/Pok%C3%A9mon
+
+https://freepngimg.com/png/37466-pokeball-image/icon
