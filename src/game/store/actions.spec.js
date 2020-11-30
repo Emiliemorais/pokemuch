@@ -8,8 +8,6 @@ jest.mock('../../service/notify');
 
 describe('game/store/actions', () => {
   let commit;
-  let endpoint;
-  let response;
   let api;
   let mock;
 
@@ -17,31 +15,34 @@ describe('game/store/actions', () => {
     commit = jest.fn();
     api = new PokeAPI();
     mock = new MockAdapter(api.requester);
-
-    response = [{ name: 'Generation I' }, { name: 'Generation II' }];
   });
 
-  describe('when gets generations list', () => {
-    beforeEach(async () => {
-      mock.onGet('/generation', {}).reply(200, response);
-
-      await actions.getGenerations({ commit });
+  describe('getGenerations', () => {
+    describe('when gets generations list', () => {
+      let response;
+  
+      beforeEach(async () => {
+        response = [{ name: 'Generation I' }, { name: 'Generation II' }];
+        mock.onGet('/generation', {}).reply(200, response);
+  
+        await actions.getGenerations({ commit });
+      });
+  
+      it('commits response data', () => {
+        expect(commit).toBeCalledWith(types.SET_GENERATIONS, response);
+      });
     });
-
-    it('commits response data', () => {
-      expect(commit).toBeCalledWith(types.SET_GENERATIONS, response);
-    });
-  });
-
-  describe('when not gets generations list', () => {
-    beforeEach(async () => {
-      mock.onGet('/generation', {}).reply(500);
-
-      await actions.getGenerations({ commit });
-    });
-
-    it('notify error', () => {
-      expect(notify.error).toBeCalledWith('Ocorreu um erro ao listar as gerações, por favor tente novamente');
+  
+    describe('when not gets generations list', () => {
+      beforeEach(async () => {
+        mock.onGet('/generation', {}).reply(500);
+  
+        await actions.getGenerations({ commit });
+      });
+  
+      it('notify error', () => {
+        expect(notify.error).toBeCalledWith('Ocorreu um erro ao listar as gerações, por favor tente novamente');
+      });
     });
   });
 });
