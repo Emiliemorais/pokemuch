@@ -1,12 +1,11 @@
-import axios from 'axios';
+import requester from './requester';
 
 export default class API {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
-    this.http = axios.create({ baseURL: baseURL })
+  constructor() {
+    this.requester = requester();
   }
 
-  get(resource, params) {
-    return this.http.get(resource, params);
+  get(resource, params = {}) {
+    return this.requester.get(resource, params);
   }
 }
