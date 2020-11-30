@@ -1,24 +1,25 @@
 <template>
   <div id="app">
-    <img class="logo" alt="pokemon-logo" src="./assets/logo.png">
-    <notifications position="bottom right" />
+    <navbar />
     <div class="container">
-      <GameGenerationList />
+      <router-view />
     </div>
+    <notifications position="bottom right" />
   </div>
 </template>
 
 <script>
-import GameGenerationList from './game/components/List.vue'
+import Navbar from './shared/navbar.vue'
 
 export default {
   name: 'App',
   components: {
-    GameGenerationList
-  }
-}
+    Navbar,
+  },
+};
+
 </script>
 
 <style lang="scss">
-  @import 'assets/main';
+  @import 'assets/scss/main';
 </style>

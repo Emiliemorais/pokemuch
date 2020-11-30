@@ -1,0 +1,13 @@
+a.navbar-item {
+  
+  &:focus,
+  &:hover,
+  &.router-link-active {
+    color: $blue !important;
+  }
+
+  &.router-link-active {
+    color: $blue !important;
+    background-color: #fafafa;
+  }
+}
