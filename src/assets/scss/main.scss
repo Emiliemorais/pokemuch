@@ -1,15 +1,16 @@
 $blue: #3B4CCA;
 $gray: #7a7a7a;
 $red: #CC0000;
+$yellow: #FFDE00;
 
 @import "elements/grid";
 @import "elements/box";
 @import "components/navbar";
 @import "components/list";
+@import "components/card";
 
 #app {
   display: flex;
-  flex-direction: column;
   width: 100%;
   min-height: 100%;
 

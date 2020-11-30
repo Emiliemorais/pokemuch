@@ -19,7 +19,7 @@ describe('service/pokeapi', () => {
     });
 
     it('call requester get', () => {
-      expect(api.requester.get).toHaveBeenCalledWith('/generation', {});
+      expect(api.requester.get).toHaveBeenCalledWith('/generation', { baseURL: 'https://pokeapi.co/api/v2' });
     });
   });
 });

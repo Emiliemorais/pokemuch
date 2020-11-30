@@ -7,7 +7,7 @@ export default () => {
     return requester;
   }
 
-  requester = axios.create({ baseURL: 'https://pokeapi.co/api/v2' });
+  requester = axios.create();
 
   return requester;
 };

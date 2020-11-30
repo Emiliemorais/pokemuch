@@ -11,12 +11,9 @@
         </div>
         <nav class="level is-mobile">
           <div class="level-right">
-            <a class="level-item">
-              <b-icon
-                pack="fas"
-                icon="eye"
-                size="is-small" />
-            </a>
+            <router-link :to="{ name: 'GenerationView', params: { id: getGenerationId(item.url) } }" class="level-item">
+              <b-icon pack="fas" icon="eye" size="is-small" />
+            </router-link>
           </div>
         </nav>
       </template>
@@ -27,19 +24,12 @@
 <script>
 
 import { mapActions, mapGetters } from 'vuex';
-import List from '../../shared/list';
+import List from '../../../shared/list';
 
 export default {
   name: 'GameGenerationList',
   components: {
     List,
-  },
-  data() {
-    return {
-      listColumns: [
-        { field: 'name', label: 'Nome' },
-      ],
-    };
   },
   mounted() {
     this.getGenerations();
@@ -48,6 +38,10 @@ export default {
     ...mapActions({
       'getGenerations': 'game/getGenerations',
     }),
+    getGenerationId(url) {
+      const idRegex = /generation\/(?<id>\d*)/;
+      return url.match(idRegex).groups.id;
+    },
   },
   computed: {
     ...mapGetters({

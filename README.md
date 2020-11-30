@@ -13,3 +13,15 @@ docker-compose up --build
 ```
 sh post-up
 ```
+
+## Rodando os testes
+
+### Opção 1: Com docker
+```
+docker exec -it pokemuch npm run test
+```
+
+### Opção 1: Sem docker
+```
+npm run test
+```

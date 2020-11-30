@@ -1,7 +1,8 @@
 import requester from './requester';
 
 export default class API {
-  constructor() {
+  constructor(url) {
+    this.url = url;
     this.requester = requester();
   }
 

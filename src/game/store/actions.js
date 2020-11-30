@@ -16,4 +16,14 @@ actions.getGenerations = async ({ commit }) => {
   }
 };
 
+actions.getGeneration = async ({ commit }, id) => {
+  try{
+    const { data } = await api.getGeneration(id);
+
+    commit(types.SET_ACTIVE, data);
+  } catch {
+    notify.error('Ocorreu um erro ao buscar a geração, por favor tente novamente');
+  }
+};
+
 export default actions;

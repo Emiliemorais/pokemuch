@@ -1,0 +1,23 @@
+.card {
+  margin-top: 30px;
+
+  .content {
+    p {
+      border-bottom: 1px solid #dbdbdb;
+    }
+  }
+
+  .card-header-title {
+    color: $blue !important;
+  
+    .total {
+      margin-left: 10px;;
+      color: $blue;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .card-header-icon {
+    color: $blue !important;
+  }
+}

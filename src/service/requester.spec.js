@@ -6,7 +6,7 @@ describe('service/requester', () => {
   let requesterInstance;
 
   beforeAll(() => {
-    requesterInstance = { baseURL: 'https://pokeapi.co/api/v2' };
+    requesterInstance = {};
 
     axios.create = jest.fn(() => requesterInstance);
   });
@@ -20,12 +20,12 @@ describe('service/requester', () => {
       axiosInstance = requester();
     });
 
-    it('calls axios create with poke api url', () => {
-      expect(axios.create).toBeCalledWith(requesterInstance);
+    it('calls axios create', () => {
+      expect(axios.create).toBeCalled();
     });
 
     it('returns axios instance', () => {
-      expect(axiosInstance.baseURL).toEqual(requesterInstance.baseURL);
+      expect(axiosInstance).toEqual(requesterInstance);
     });
   });
 
@@ -34,12 +34,12 @@ describe('service/requester', () => {
       axiosInstance = requester();
     });
 
-    it('not calls axios create with base url', () => {
-      expect(axios.create).not.toBeCalledWith(requesterInstance);
+    it('not calls axios create', () => {
+      expect(axios.create).not.toBeCalled();
     });
 
     it('returns axios instance', () => {
-      expect(axiosInstance.baseURL).toEqual(requesterInstance.baseURL);
+      expect(axiosInstance).toEqual(requesterInstance);
     });
   });
 });
