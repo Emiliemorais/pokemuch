@@ -1,0 +1,10 @@
+.columns {
+  flex-wrap: wrap;
+}
+
+.column {
+  margin: 15px;
+  padding: 20px !important; 
+  flex-basis: auto !important;
+  flex-grow: 0 !important;
+}

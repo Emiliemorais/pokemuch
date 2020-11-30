@@ -1,7 +1,19 @@
 <template>
   <list :items="generations">
     <template v-slot:item="{ item }">
-      <p> {{ item.name }} </p>
+      <div class="content">
+        <p> {{ item.name }} </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-right">
+          <a class="level-item">
+            <b-icon
+              pack="fas"
+              icon="eye"
+              size="is-small" />
+          </a>
+        </div>
+      </nav>
     </template>
   </list>
 </template>

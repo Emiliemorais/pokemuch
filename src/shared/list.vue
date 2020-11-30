@@ -5,9 +5,7 @@
         <div class="media-left">
         </div>
         <div class="media-content">
-          <div class="content">
-            <slot name="item" :item="item"/>
-          </div>
+          <slot name="item" :item="item"/>
         </div>
       </article>
     </div>
