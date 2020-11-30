@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img class="logo" alt="pokemon-logo" src="./assets/logo.png">
-
+    <notifications position="bottom right" />
     <div class="container">
       <GameGenerationList />
     </div>
